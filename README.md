@@ -119,7 +119,7 @@ def api_paris():
 Le Framework Flask nous impose de déposer tous les fichiers HTML dans le répertoire templates dédié à cet effet.  
 Depuis GitHUB, nous allons donc créer et déposer dans le répertoire "templates" une page HTML qui sera accessible depuis la route suivante : https://{VOTRE_URL}/rapport/  
   
-**Etape 1.1 : Création du fichier graphique.html**  
+**Etape 1 : Création du fichier graphique.html**  
 Dans votre répertoire templates, créez un fichier graphique.html contenant le code suivant :  
 ```
 <html>
@@ -132,7 +132,7 @@ Dans votre répertoire templates, créez un fichier graphique.html contenant le 
 </body>
 </html>
 ```
-**Etape 1.2 : Création d'une nouvelle route**  
+**Etape 2 : Création d'une nouvelle route**  
 Créez à présent une nouvelle route afin de pouvoir consulter votre fichier HTML depuis votre site en ligne.
 Pour cela, ajouter le code ci-dessous dans votre fichier app.py :
 ```
