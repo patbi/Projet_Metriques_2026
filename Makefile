@@ -1,36 +1,29 @@
-# Variables
 PYTHON=python3
 VENV=.venv
 PIP=$(VENV)/bin/pip
 FLASK=$(VENV)/bin/flask
 
-# Par défaut
 .DEFAULT_GOAL := help
 
 help:
-	@echo "Commandes disponibles :"
-	@echo " make venv        -> créer le virtualenv"
-	@echo " make install     -> installer les dépendances"
-	@echo " make run         -> lancer le serveur Flask"
-	@echo " make freeze      -> geler requirements.txt"
-	@echo " make clean       -> supprimer le venv"
+	@echo "make venv / install / run / freeze / clean"
 
-# Création venv
 venv:
 	$(PYTHON) -m venv $(VENV)
 
-# Installation dépendances
 install: venv
-	$(PIP) install -r requirements.txt
+	@if [ -f requirements.txt ]; then \
+		$(PIP) install -r requirements.txt; \
+	else \
+		echo "Pas de requirements.txt — installation minimale Flask"; \
+		$(PIP) install flask; \
+	fi
 
-# Lancer Flask
-run:
+run: install
 	FLASK_APP=app.py FLASK_ENV=development $(FLASK) run --host=0.0.0.0 --port=5000
 
-# Freeze deps
 freeze:
 	$(PIP) freeze > requirements.txt
 
-# Nettoyage
 clean:
 	rm -rf $(VENV)
