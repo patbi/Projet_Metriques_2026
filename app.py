@@ -37,20 +37,7 @@ def monhistogramme():
 
 @app.get("/atelier")
 def api_atelier():
-    
-    url = "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,dew_point_2m,precipitation_probability,precipitation,rain"
-    response = requests.get(url)
-    data = response.json()
-
-    times = data.get("hourly", {}).get("time", [])
-    temps = data.get("hourly", {}).get("precipitation", [])
-
-    n = min(len(times), len(temps))
-    result = [
-        {"datetime": times[i], "temperature_c": temps[i]}
-        for i in range(n)
-    ]
-    return jsonify(result)
+    return render_template("atelier.html")
 
 # Ne rien mettre après ce commentaire
     
