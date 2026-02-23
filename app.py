@@ -29,11 +29,13 @@ def api_paris():
 
     return jsonify(result)
     
-
 @app.route("/rapport")
 def mongraphique():
     return render_template("graphique.html")
-    
+
+@app.route("/histogramme")
+def monhistogramme():
+    return render_template("histogramme.html")
 
 # Ne rien mettre après ce commentaire
     
