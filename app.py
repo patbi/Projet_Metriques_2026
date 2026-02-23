@@ -36,7 +36,7 @@ def monhistogramme():
     return render_template("histogramme.html")
 
 @app.get("/atelier")
-def api_paris():
+def api_atelier():
     
     url = "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,dew_point_2m,precipitation_probability,precipitation,rain"
     response = requests.get(url)
